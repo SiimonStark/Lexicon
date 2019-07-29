@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import HelloWorld from './components/HelloWorld';
 import Welcome from './components/Welcome';
 import warnDaily from './components/warnDaily';
@@ -40,6 +41,17 @@ export default {
   },
   data: () => ({
     test: true,
+    defaultWords: [],
+
   }),
+  methods: {
+
+  },
+  created() {
+    axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/day?key=c17b334b-1238-4ca1-af88-55e3351e689b`)
+      .then(res => this.defaultWords = res.data)
+      .catch(err => console.log(err))
+
+  }
 };
 </script>
