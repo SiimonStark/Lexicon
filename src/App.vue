@@ -20,18 +20,19 @@
       </v-btn>
     </v-app-bar>
 
-    <Welcome/>
+    <Welcome />
 
-    <warnDaily v-if="test" />
+    <warnDaily
+      v-if="defaultWords.length" v-bind:defaultWords="defaultWords" />
 
   </v-app>
 </template>
 
 <script>
 import axios from 'axios';
-import HelloWorld from './components/HelloWorld';
 import Welcome from './components/Welcome';
 import warnDaily from './components/warnDaily';
+import { key } from '../private';
 
 export default {
   name: 'App',
@@ -48,10 +49,9 @@ export default {
 
   },
   created() {
-    axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/day?key=c17b334b-1238-4ca1-af88-55e3351e689b`)
+    axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/day${key}`)
       .then(res => this.defaultWords = res.data)
-      .catch(err => console.log(err))
-
-  }
+      .catch(err => console.log(err));
+  },
 };
 </script>

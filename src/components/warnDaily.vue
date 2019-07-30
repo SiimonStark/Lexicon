@@ -10,15 +10,16 @@
       No Search has been entered: <br/>
       DISPLAYING: Words of the day
     </v-alert>
-    <WordList/>
+    <WordList v-bind:defaultWords="defaultWords" />
   </section>
 </template>
 
 <script>
-import WordList from './WordList/WordList';
+import WordList from './WordList';
 
 export default {
-  name: 'App',
+  name: 'warnDaily',
+  props: ['defaultWords'],
   components: {
     WordList,
   },
