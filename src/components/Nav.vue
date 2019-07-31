@@ -46,7 +46,7 @@ export default {
   methods: {
     handleSearch() {
       this.$emit('input-search', this.searchWord);
-    }
+    },
   },
 };
 </script>

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import WordList from './WordList';
+import WordList from './WordList.vue';
 
 export default {
   name: 'warnDaily',
@@ -30,7 +30,7 @@ export default {
   methods: {
     passClick(word) {
       this.$emit('input-search', word);
-    }
-  }
+    },
+  },
 };
 </script>
