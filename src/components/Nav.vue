@@ -16,7 +16,7 @@
       filled
       class="mt-6 font-weight-medium subtitle-2"
       v-model="searchWord"
-      v-on:change="handleSearch"
+      @input="handleSearch"
       color="blue-grey lighten-2"
       label="Search Synonyms"
     ></v-text-field>
@@ -46,9 +46,6 @@ export default {
   methods: {
     handleSearch() {
       this.$emit('input-search', this.searchWord);
-    },
-    clearSearch() {
-      this.searchWord = '';
     }
   },
 };

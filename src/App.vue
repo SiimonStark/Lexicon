@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <Nav />
-    
+    <Nav v-on:input-search="fetchSynonyms" />
+
     <Welcome />
 
     <warnDaily
@@ -30,8 +30,8 @@ export default {
     searchWord: '',
   }),
   methods: {
-    fetchSynonyms(e) {
-      console.log('Search the Thing: ')
+    fetchSynonyms(word) {
+      this.searchWord = word;
       console.log(this.searchWord)
     }
   },
