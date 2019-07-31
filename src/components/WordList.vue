@@ -5,8 +5,8 @@
       :key="item.meta.uuid"
     >
       <v-expansion-panel-header>
-        <i v-if="isFavorite()" class="fas fa-heart heart-red"></i>
-        <i v-else class="far fa-heart heart-gray"></i>
+        <!-- <i v-if="isFavorite()" class="fas fa-heart heart-red"></i>
+        <i v-else class="far fa-heart heart-gray"></i> -->
         <span>{{ item.hwi.hw.toUpperCase() }}</span>
       </v-expansion-panel-header>
       <v-expansion-panel-content>
