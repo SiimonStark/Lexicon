@@ -8,7 +8,7 @@
       v-if="!foundWords.length" v-bind:defaultWords="defaultWords"
       v-on:input-search="searchSynonyms" />
 
-    <WordList 
+    <WordList
       v-if="foundWords.length"
       v-bind:words="foundWords"
       v-on:input-search="searchSynonyms" />
@@ -18,10 +18,10 @@
 
 <script>
 import axios from 'axios';
-import Nav from './components/Nav';
-import Welcome from './components/Welcome';
-import warnDaily from './components/warnDaily';
-import WordList from './components/WordList';
+import Nav from './components/Nav.vue';
+import Welcome from './components/Welcome.vue';
+import warnDaily from './components/warnDaily.vue';
+import WordList from './components/WordList.vue';
 // import { key } from '../private';
 require('dotenv').config();
 
@@ -42,15 +42,13 @@ export default {
   methods: {
     searchSynonyms(word) {
       this.searchWord = word;
-      console.log(this.searchWord)
       word !== '' ? this.fetchSynonyms(word) : null;
     },
     fetchSynonyms(word) {
       axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${process.env.VUE_APP_SECRET}`)
-      .then(res => this.foundWords = res.data)
-      .then((res)=> console.log('Res: ',res))
-      .catch(err => console.log(err));
-    }
+        .then(res => this.foundWords = res.data)
+        .catch(err => console.log(err));
+    },
   },
   created() {
     axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/day?key=${process.env.VUE_APP_SECRET}`)

@@ -5,6 +5,7 @@
       :key="item.meta.uuid"
     >
       <v-expansion-panel-header>
+        <!-- Leaving, Will finish later -->
         <!-- <i v-if="isFavorite()" class="fas fa-heart heart-red"></i>
         <i v-else class="far fa-heart heart-gray"></i> -->
         <span>{{ item.hwi.hw.toUpperCase() }}</span>
@@ -28,7 +29,6 @@
   </v-expansion-panels>
 </template>
 <script>
-
 export default {
   name: 'WordList',
   props: ['words'],
@@ -36,12 +36,12 @@ export default {
     //
   }),
   methods: {
-    isFavorite(e) {
+    isFavorite() {
       return true;
     },
     sendClicked(e) {
       this.$emit('input-search', e.target.innerText);
-    }
+    },
   },
 };
 </script>
