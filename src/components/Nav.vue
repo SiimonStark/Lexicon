@@ -5,6 +5,7 @@
     </v-toolbar-title>
     <v-spacer></v-spacer>
 
+    <!--  Leaving this here incase I get favorites  -->
     <!-- <v-autocomplete
       label="Search Synonyms"
       v-model="searchWord"
@@ -20,7 +21,6 @@
       color="blue-grey lighten-2"
       label="Search Synonyms"
     ></v-text-field>
-
 
     <v-btn icon v-on:click="handleSearch">
       <v-icon>mdi-magnify</v-icon>

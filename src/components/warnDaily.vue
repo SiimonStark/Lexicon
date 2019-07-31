@@ -10,7 +10,8 @@
       No Search has been entered: <br/>
       DISPLAYING: Words of the day
     </v-alert>
-    <WordList v-bind:defaultWords="defaultWords" />
+    <WordList v-bind:words="defaultWords"
+      v-on:input-search="passClick" />
   </section>
 </template>
 
@@ -26,5 +27,10 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    passClick(word) {
+      this.$emit('input-search', word);
+    }
+  }
 };
 </script>
