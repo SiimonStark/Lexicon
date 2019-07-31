@@ -1,25 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar app dark class="blue accent-1">
-      <v-toolbar-title class="headline text-uppercase">
-        Lexicon
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-
-      <v-autocomplete
-        label="Synonyms"
-        :items="components"
-      ></v-autocomplete>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-filter</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <Nav />
+    
     <Welcome />
 
     <warnDaily
@@ -30,6 +12,7 @@
 
 <script>
 import axios from 'axios';
+import Nav from './components/Nav';
 import Welcome from './components/Welcome';
 import warnDaily from './components/warnDaily';
 import { key } from '../private';
@@ -37,16 +20,20 @@ import { key } from '../private';
 export default {
   name: 'App',
   components: {
+    Nav,
     Welcome,
     warnDaily,
   },
   data: () => ({
     test: true,
     defaultWords: [],
-
+    searchWord: '',
   }),
   methods: {
-
+    fetchSynonyms(e) {
+      console.log('Search the Thing: ')
+      console.log(this.searchWord)
+    }
   },
   created() {
     axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/day${key}`)
@@ -55,3 +42,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+  #input-5 {
+    font-size: 26px;
+  }
+</style>
