@@ -46,7 +46,7 @@ export default {
       word !== '' ? this.fetchSynonyms(word) : null;
     },
     fetchSynonyms(word) {
-      axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/?key=${word}${process.env.VUE_APP_SECRET}`)
+      axios.get(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${process.env.VUE_APP_SECRET}`)
       .then(res => this.foundWords = res.data)
       .then((res)=> console.log('Res: ',res))
       .catch(err => console.log(err));
