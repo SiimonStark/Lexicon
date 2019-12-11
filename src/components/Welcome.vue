@@ -25,6 +25,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .welcome-img {
-    margin: auto;
+    margin: 0 auto;
   }
 </style>
