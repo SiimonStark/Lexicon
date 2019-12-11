@@ -1,10 +1,10 @@
 <template>
-  <section>
+  <section class="welcome-img">
     <v-img
       src="https://cdn.dribbble.com/users/1162077/screenshots/3895488/writer.gif"
       lazy-src="https://icon-library.net/images/spinner-icon-gif/spinner-icon-gif-29.jpg"
       aspect-ratio="1"
-      class="lighten-4"
+      class="lighten-4 welcome-img"
       max-width="500"
       max-height="300"
     ></v-img>
@@ -23,3 +23,8 @@ export default {
   name: 'Welcome',
 };
 </script>
+<style lang="scss" scoped>
+  .welcome-img {
+    margin: 0 auto;
+  }
+</style>

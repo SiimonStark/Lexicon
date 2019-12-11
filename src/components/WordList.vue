@@ -14,14 +14,15 @@
         <h4>Definitions:</h4>
           <p
             v-for="(item, ind) in item.shortdef" :key="ind">
-            - {{item}},
+            - {{item}}
           </p>
         <h4>Possible Synonyms:</h4>
         <p>
           <span
+            class="synonym-link"
             v-on:click="sendClicked"
             v-for="(item, ind) in item.meta.syns.flat()" :key="ind">
-            {{item}},
+            {{item}}
           </span>
         </p>
       </v-expansion-panel-content>
@@ -51,5 +52,21 @@ export default {
   }
   .heart-gray {
     color: gray;
+  }
+  p {
+    line-height: 2rem;
+  }
+  .synonym-link {
+    background: lightblue;
+    border: solid .75px rgb(67, 123, 196);
+    padding: 0 .1rem 0 .35rem;
+    margin: .2rem;
+    border-radius: 40px;
+    text-transform: capitalize;
+
+    &:hover {
+      cursor: pointer;
+      background: #82B1FF;
+    }
   }
 </style>
